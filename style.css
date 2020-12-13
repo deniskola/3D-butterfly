@@ -1,0 +1,56 @@
+.container {
+    position: relative;
+    width: 360px;
+    height: 313px;
+    left:50%;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+    perspective: 600px;
+  }
+  .butterfly {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    transform: rotate3d(2,1,-1, 45deg);
+  }
+
+  .all-parts {
+      position: absolute;
+  }
+  
+  .body {
+    width: 26%;
+    height: 80%;
+    left: 50%;
+    transform: translate(-50%);
+    bottom:15%;
+    background-size: 100% 100% ;
+    background-image: url(./img/body.png);
+  }
+  
+  .left-wing, .right-wing {
+    width: calc(50% - 5px);
+    height: 100%;
+    left: 0;
+    background-image: url(./img/wing.png);
+    background-size: 135% 100%;
+    animation: leftWingAnim 0.5s ease-in-out infinite;
+    transform-origin: right;
+  }
+
+  .right-wing {
+    width: calc(50% + 5px);
+    animation: rightWingAnim 0.5s ease-in-out infinite;
+  }
+
+  @keyframes leftWingAnim {
+      0% { transform: rotate3D(0,1,0, 80deg);}
+      50% { transform: rotate3D(0,1,0, 20deg);}
+      100% { transform: rotate3D(0,1,0, 80deg);}
+  }
+  @keyframes rightWingAnim {
+    0% { transform: rotate3D(0,1,0, 100deg);}
+    50% { transform: rotate3D(0,1,0, 160deg);}
+    100% { transform: rotate3D(0,1,0, 100deg);}
+}
